@@ -26,7 +26,7 @@ config :pewpew,
   domain: "the domain you wish to use in mailgun"
 ```
 
-You can create a mailer like so:
+You can then create and send a mailer like so:
 
 ```elixir
 # Create a new mailer
@@ -40,5 +40,21 @@ m = PewPew.Mailer.new(
 PewPew.Mailer.send(m)
 ```
 
-Documentation can be found at
+There are a number of functions inside the `PewPew.Mailer` class, and they're
+hopefully pretty easy to understand. The functions are designed to be easily
+integrated inside a pipeline, so you can modify the struct pretty easily if you
+do not have all of the attributes at the time of creation. As an example:
+
+```elixir
+PewPew.Mailer.new()
+|> PewPew.Mailer.set_to("test@example.com")
+|> PewPew.Mailer.set_cc("test@another-example.com")
+|> PewPew.Mailer.set_bcc("sneaky@example.com")
+|> PewPew.Mailer.set_subject("Hello!")
+|> PewPew.Mailer.set_text("This is some text content")
+|> PewPew.Mailer.set_html("<p>Some <b>fancy</b> HTML content!</p>")
+|> PewPew.Mailer.send()
+```
+
+Full documentation for this project can be found at
 [https://hexdocs.pm/pewpew](https://hexdocs.pm/pewpew).
