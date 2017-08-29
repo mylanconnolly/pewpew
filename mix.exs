@@ -13,7 +13,8 @@ defmodule PewPew.Mixfile do
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
       package: package(),
-      deps: deps()
+      deps: deps(),
+      docs: docs()
     ]
   end
 
@@ -22,8 +23,13 @@ defmodule PewPew.Mixfile do
       name: "pewpew",
       description: "A simple mailgun client for Elixir",
       maintainers: ["Mylan Connolly <mylan.connolly@protonmail.com>"],
-      licenses: ["MIT"]
+      licenses: ["MIT"],
+      links: %{"github" => "https://github.com/mylanconnolly/pewpew"}
     ]
+  end
+
+  defp docs do
+    [main: "PewPew", extras: ["README.md"]]
   end
 
   # Configuration for the OTP application
@@ -45,6 +51,7 @@ defmodule PewPew.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
+      {:ex_doc, "~> 0.16", only: :dev, runtime: false},
       {:httpoison, "~> 0.13"},
       {:poison, "~> 3.1"}
     ]
