@@ -2,6 +2,10 @@
 
 This is a minimal client for the [mailgun](https://mailgun.com) service.
 
+Why does it exist? While dealing with the mailgun API is pretty straightforward,
+I wanted to create a simple hex package that I could reuse across my other
+systems that might need it later on.
+
 ## Installation
 
 Add to your dependencies:
