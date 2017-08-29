@@ -4,12 +4,26 @@ defmodule PewPew.Mixfile do
   @version "0.1.0"
 
   def project do
-    [app: :pewpew,
-     version: @version,
-     elixir: "~> 1.4",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps()]
+    [
+      app: :pewpew,
+      name: "PewPew",
+      source_url: "https://github.com/mylanconnolly/pewpew",
+      version: @version,
+      elixir: "~> 1.4",
+      build_embedded: Mix.env == :prod,
+      start_permanent: Mix.env == :prod,
+      package: package(),
+      deps: deps()
+    ]
+  end
+
+  defp package do
+    [
+      name: "pewpew",
+      description: "A simple mailgun client for Elixir",
+      maintainers: ["Mylan Connolly <mylan.connolly@protonmail.com>"],
+      licenses: ["MIT"]
+    ]
   end
 
   # Configuration for the OTP application
