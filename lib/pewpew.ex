@@ -3,16 +3,10 @@ defmodule PewPew do
   Documentation for PewPew.
   """
 
+  alias PewPew.Mailer
+
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> PewPew.hello
-      :world
-
+  This is just a convenience function around `Mailer.new/1`.
   """
-  def hello do
-    :world
-  end
+  def new_mailer(opts \\ []), do: Mailer.new(opts)
 end
