@@ -14,6 +14,18 @@ end
 
 ## Usage
 
+First, set some configuration options in `config.exs` (or the env-specific
+version):
+
+```elixir
+use Mix.Config
+
+config :pewpew,
+  from: "default `from` address",
+  key: "your API key from mailgun",
+  domain: "the domain you wish to use in mailgun"
+```
+
 You can create a mailer like so:
 
 ```elixir
